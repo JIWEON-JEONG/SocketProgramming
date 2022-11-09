@@ -1,10 +1,10 @@
-package thread;
+package thread.threadEx;
 
 public class Main {
     public static void main1(String[] args) {
-        ThreadEx a1 = new ThreadEx("A1");
-        ThreadEx b1 = new ThreadEx("B1");
-        ThreadEx c1 = new ThreadEx("C1");
+        ThreadEx01 a1 = new ThreadEx01("A1");
+        ThreadEx01 b1 = new ThreadEx01("B1");
+        ThreadEx01 c1 = new ThreadEx01("C1");
         a1.start();
         b1.start();
         c1.start();
@@ -32,9 +32,9 @@ public class Main {
 
 }
 
-class ThreadEx extends Thread{
+class ThreadEx01 extends Thread{
 
-    public ThreadEx(String name) {
+    public ThreadEx01(String name) {
         super(name);
     }
 
@@ -51,17 +51,3 @@ class ThreadEx extends Thread{
     }
 }
 
-class CountDown implements Runnable {
-    @Override
-    public void run() {
-        for (int i = 10; i > -1; i--) {
-            String name = Thread.currentThread().getName();
-            System.out.println(name + " : " + i);
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
-}
